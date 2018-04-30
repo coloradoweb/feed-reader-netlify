@@ -1,28 +1,68 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <TitleBar />
+    <FeedReader />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { mapActions, mapState, mapGetters } from 'vuex'
+import Loading from './components/Loading.vue'
+import FeedReader from './features/feed/index.vue'
+import TitleBar from './components/TitleBar.vue'
 
 export default {
   name: 'app',
-  components: {
-    HelloWorld
-  }
+
+  components: { Loading, FeedReader, TitleBar }
 }
 </script>
 
 <style>
+:root {
+  --c-primary: #ff3b3f;
+  --c-text: #2c3e50;
+  --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-family: var(--font-stack);
+  color: var(--c-text);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--c-primary);
+  transition: color ease 0.3s;
+}
+
+a:hover,
+a:focus {
+  color: var(--c-text);
+}
+
+body {
+  transition: background ease 0.3s, color ease 0.3s;
+}
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.3s ease;
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateX(-10px);
+  opacity: 0;
 }
 </style>

@@ -5,37 +5,45 @@
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "serve:lambda": "netlify-lambda serve src/lambda",
+    "build:lambda": "netlify-lambda build src/lambda"
   },
   "dependencies": {
-    "vue": "^2.5.16"
+    "axios": "^0.18.0",
+    "highlight.js": "^9.12.0",
+    "netlify-lambda": "^0.4.0",
+    "rss-parser": "^3.1.2",
+    "vue": "^2.5.16",
+    "vue-loading-overlay": "^2.0.4",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.7",
     "@vue/cli-plugin-eslint": "^3.0.0-beta.7",
     "@vue/cli-service": "^3.0.0-beta.7",
+    "vue-cli-plugin-netlify-lambda": "^0.1.0",
     "vue-template-compiler": "^2.5.13"
   },
   "babel": {
-    "presets": [
-      "@vue/app"
-    ]
+    "presets": ["@vue/app"]
   },
   "eslintConfig": {
     "root": true,
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ]
+    "extends": ["plugin:vue/essential", "eslint:recommended"]
   },
   "postcss": {
     "plugins": {
       "autoprefixer": {}
     }
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
+  "proxy": {
+    "/.netlify/functions": {
+      "target": "http://localhost:9000",
+      "pathRewrite": {
+        "^/\\.netlify/functions": ""
+      }
+    }
+  }
 }
