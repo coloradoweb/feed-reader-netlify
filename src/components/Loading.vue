@@ -5,16 +5,15 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import VueLoading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.min.css'
 
 export default {
   name: 'Loading',
   
-  components: { VueLoading },
-
-  computed: mapState(['isLoading'])
+  props: ['isLoading'],
+  
+  components: { VueLoading }
 }
 </script>
 
