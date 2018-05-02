@@ -1,5 +1,5 @@
 <template>
-  <div v-if="article" class="article">
+  <div v-if="article" class="article" tabindex="-1">
     <h2 class="mb-4">{{ article.title }}</h2>
     
     <div class="mb-4" v-html="article.content" />
@@ -19,7 +19,21 @@
 export default {
   name: 'SingleArticle',
   
-  props: ['article']
+  props: ['article'],
+  
+  watch: {
+    article: {
+      immediate: true,
+      handler() {
+        if (this.article) {
+          this.$nextTick(() => {
+            this.$el.focus()
+            window.scroll(0, 0)
+          })
+        }
+      }
+    }
+  }
 }
 </script>
 

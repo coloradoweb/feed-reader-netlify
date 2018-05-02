@@ -1,5 +1,5 @@
 <template>
-  <div v-if="articles && articles.length">
+  <div v-if="articles && articles.length" tabindex="-1">
     <h2 class="mb-4">Articles</h2>    
     <ul class="list-reset sticky pin-t border-b border-grey">
       <li v-for="item in articles" :key="item.title">
@@ -22,6 +22,20 @@ export default {
   components: { Link },
   
   props: ['articles', 'selectedArticle'],
+  
+  watch: {
+    articles: {
+      immediate: true,
+      handler() {
+        if (this.articles.length) {
+          this.$nextTick(() => {
+            this.$el.focus()
+            window.scroll(0, 0)
+          })
+        }
+      }
+    }
+  },
 
   methods: {
     selectArticle(article) {
