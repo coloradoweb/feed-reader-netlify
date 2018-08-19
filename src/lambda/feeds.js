@@ -4,7 +4,6 @@ const FEEDS = [
   'https://css-tricks.com/feed/',
   'https://codepen.io/posts/feed',
   'https://hnrss.org/frontpage',
-  'https://tj.ie/feed.rss',
   'http://github-trends.ryotarai.info/rss/github_trends_javascript_daily.rss'
 ]
 
