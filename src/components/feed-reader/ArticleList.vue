@@ -1,7 +1,7 @@
 <template>
   <div v-if="articles && articles.length" tabindex="-1">
     <h2 class="mb-4">Articles</h2>    
-    <ul class="list-reset sticky pin-t border-b border-grey">
+    <ul class="list-reset sticky pin-t border-b border-red">
       <li v-for="item in articles" :key="item.title">
         <Link
           @click.native="selectArticle(item)" 
