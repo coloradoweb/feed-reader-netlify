@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2 class="mb-4">Feeds</h2>
-    <ul v-if="feeds && feeds.length" class="list-reset sticky pin-t border-b border-grey">
+    <ul v-if="feeds && feeds.length" class="list-reset sticky pin-t border-b border-red">
       <li v-for="feed in feeds" :key="feed.title">
         <Link 
           @click.native="selectFeed(feed)" 
