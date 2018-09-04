@@ -73,5 +73,6 @@ export default {
   display: grid;
   grid-template-columns: 15% 15% auto;
   grid-gap: 20px;
+  outline: none !important;
 }
 </style>
