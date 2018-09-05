@@ -1,6 +1,7 @@
 import Parser from 'rss-parser'
 
 const FEEDS = [
+  'https://gwarp.com/rss/',
   'https://coloradojustice.com/feed/',
   'http://blog.dynamicdrive.com/feed/',
   'https://css-tricks.com/feed/',
